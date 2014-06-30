@@ -1,4 +1,6 @@
-<?php include("inc/products.php");
+<?php 
+require_once("./inc/config.php");
+include("inc/products.php");
 
 if (isset($_GET["id"])) {
 	$product_id = $_GET["id"];

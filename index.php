@@ -1,4 +1,5 @@
 <?php 
+require_once("./inc/config.php");
 $pageTitle = "Unique T-shirts designed by a frog";
 $section = "home";
 include('inc/header.php'); ?>
