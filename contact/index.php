@@ -1,5 +1,5 @@
 <?php
-require_once("./inc/config.php");
+require_once("../inc/config.php");
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = trim($_POST["name"]);
     $email = trim($_POST["email"]);
@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $error_message ="Your form submission was rejected";
     }
 
-    require_once("inc/phpmailer/class.phpmailer.php");
+    require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
     $mail = new PHPMailer();
 
     if (!isset($error_message) && !$mail->ValidateAddress($email)){
@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $mail->msgHTML($email_body);
         //send the message, check for errors
         if ($mail->send()) {
-            header("Location: contact.php?status=thanks");
+            header("Location:" . BASE_URL . "contact/?status=thanks");
             exit;
         }
         else{
@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?><?php
 $pageTitle = "Contact Mike";
 $section = "contact";
-include('inc/header.php'); ?>
+include(ROOT_PATH .'inc/header.php'); ?>
 
     <div class="section page">
 
@@ -77,7 +77,7 @@ include('inc/header.php'); ?>
                         echo '<p class="message">' . $error_message . '</p>';
                     }
             ?>
-            <form method="post" action="contact.php">
+            <form method="post" action="<?php echo BASE_URL;?>contact/">
                     <table>
                         <tr>
                             <th>
@@ -119,4 +119,4 @@ include('inc/header.php'); ?>
         <div>
         <?php } ?>
 
-<?php include('inc/footer.php'); ?>
+<?php include(ROOT_PATH . 'inc/footer.php'); ?>
