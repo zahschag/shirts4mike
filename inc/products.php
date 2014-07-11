@@ -35,9 +35,9 @@ function get_products_search($s){
     $all = get_products_all();
 
     foreach($all as $product){
-        //TODO: if (there's a match){
+    if (stripos($product['name'], $ !== false)){
             $results[] = $product;
-        //}
+        }
     }
     return $results;
 }
