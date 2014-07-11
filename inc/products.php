@@ -41,7 +41,21 @@ function get_products_search($s){
     }
     return $results;
 }
-
+function get_products_count(){
+    $productCount = array();
+    $all = get_products_all();
+    
+    $total_products = count($all);
+    $count = 0;
+    
+    foreach($all as $product){
+        $count = $count + 1;
+        if($count <= 8){
+            $productCount[] = $product;
+        }
+    }
+        return $productCount;
+}
 function get_products_all() {
         $products = array();
         $products[101] = array(
