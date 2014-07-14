@@ -1,10 +1,11 @@
 <?php 
 	require_once('./inc/config.php');
 	include(ROOT_PATH . 'inc/products.php'); 
-	include(ROOT_PATH .'inc/header.php');
+	
 	$recent = get_products_recent();
 	$pageTitle = "Unique T-shirts designed by a frog";
 	$section = "home";
+	include(ROOT_PATH .'inc/header.php');
  ?>
 
 		<div class="section banner">
@@ -32,7 +33,7 @@
 					<?php 
 						$list_view_html = "";
 						foreach($recent as $product) { 
-								$list_view_html = get_list_view_html($product) . $list_view_html;
+								include(ROOT_PATH . 'inc/partial-products.php');
 						}
 						echo $list_view_html;
 					?>								

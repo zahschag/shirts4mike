@@ -29,7 +29,7 @@ include(ROOT_PATH . 'inc/header.php');?>
 					if(!empty($products)){
 						echo '<ul class="products">';
 						foreach($products as $product){
-							echo get_list_view_html($product);
+							include(ROOT_PATH . "inc/partial-products.php");
 						}
 						echo '</ul>';
 					} else{
